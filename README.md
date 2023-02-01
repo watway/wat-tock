@@ -1,3 +1,9 @@
+https://www.learnwithjason.dev/build-a-full-stack-serverless-app-with-next-js-and-fauna
+```
+npx create-next-app@latest wat-tock --use-npm
+```
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
