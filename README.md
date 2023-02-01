@@ -2,6 +2,8 @@ https://www.learnwithjason.dev/build-a-full-stack-serverless-app-with-next-js-an
 ```
 npx create-next-app@latest wat-tock --use-npm
 ```
+https://github.com/Shadid12/ticktock-starter
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
