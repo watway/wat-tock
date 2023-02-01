@@ -74,7 +74,6 @@ export default function Signup({ showModal = false, closeModal, openLogin }) {
               <div className={styles.msg}>Already have an account?</div>
               <button
                 className="button is-light"
-                openlogin={openLogin}
                 onClick={(e) => {
                   e.preventDefault();
                   openLogin();
