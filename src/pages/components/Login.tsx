@@ -1,13 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '@/styles/login.module.css';
+import { useMutation, gql } from '@apollo/client';
+import Cookie from 'js-cookie';
+
+const LOGIN = gql`
+  mutation UserLogin($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      secret
+      email
+      userId
+    }
+  }
+`;
 
 export default function Login({ showModal = false, closeModal, openSignup }) {
+  const [loginFunc, { data, loading, error }] = useMutation(LOGIN);
+  const [state, setState] = useState({});
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      Cookie.set(
+        'fauna-session',
+        JSON.stringify(data.login),
+        { expires: data.ttl } // 30 mins from now
+      );
+      alert('Login successful');
+      closeModal();
+    }
+  }, [data]);
+
   const loginUser = async (e) => {
     e.preventDefault();
-    alert('TODO: login user');
+
+    loginFunc({
+      variables: {
+        ...state,
+      },
+    }).catch((e) => console.log(e));
   };
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className={`modal ${showModal ? 'is-active' : ''}`}>

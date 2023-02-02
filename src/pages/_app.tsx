@@ -12,11 +12,11 @@ import '@/styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <Layout>
         <Component {...pageProps} />
-      </ApolloProvider>
-    </Layout>
+      </Layout>
+    </ApolloProvider>
   );
 }
 
